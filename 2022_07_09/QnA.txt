@@ -1,0 +1,14 @@
+1. ArrayList 에서 추가, 삭제를 할 때 왜 어려운가?
+	- ArrayList 이 선언되고 메모리를 할당 할 때 크기(방의 갯수)가 정해져 있어서, 데이터를 추가할 경우 만약 ArrayList 에서 개수를 초과하는 방을 요청할 수 없고, 특정한 데이터를 삭제를 할 때는 특정 데이터를 찾을 때 시간이 오래 걸라기 때문
+
+	* 어렵다의 정의 -> 시간이 오래 걸린다, 오류가 자주 발생한다.
+
+2. ArrayList 에서 개수를 초과하는 인덱스를 요청하면 어떻게 되는가
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 5 
+라는 에러 메세지가 뜸. 즉, ArrayIndexOutOfBoundsException 클래스를 불러오게 된다
+
+3. LinkedList 는 왜 순서대로 저장하지 않을까요? 어떤 특징 때문에?
+	- RAM (Random Access Memory) 특성상 메모리 공간을 할당해 줄때 주소를 랜덤하게 준다
+	- 추가 를 할 때는 메모리 공간이 무한대로 가정한다면 무한정 linking 하면서 추가를 할 수 있음
+	- 삭제할 때는 
+4. 
