@@ -11,6 +11,8 @@
   즉, ArrayIndexOutOfBoundsException 클래스를 불러오게 된다
 
 <br>
+![image](https://user-images.githubusercontent.com/35947667/179389236-3962507e-0483-462a-b2f1-2a29ff2ea8b0.png)
+
 
 ### 📌 LinkedList 는 왜 순서대로 저장하지 않을까요? 어떤 특징 때문에?
 - 프로그램을 실행다는 것은 
