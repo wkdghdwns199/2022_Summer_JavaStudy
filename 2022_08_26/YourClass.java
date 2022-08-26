@@ -12,11 +12,19 @@ public class YourClass{
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         
         int resultAdder=0;
+        int resultSubtractor=Integer.parseInt(args[0]);
+
         for (int i=0; i<args.length; i++){
             resultAdder += Integer.parseInt(args[i]);
         }
         
+
+        for (int i=1; i<args.length; i++){
+            resultSubtractor -= Integer.parseInt(args[i]);
+        }
+        
         bw.write("출력: "+ resultAdder);
+       
         bw.flush();
         bw.close();
     }
