@@ -23,8 +23,9 @@ public class YourClass{
             resultSubtractor -= Integer.parseInt(args[i]);
         }
         
-        bw.write("출력: "+ resultAdder);
-       
+        
+        bw.write("출력: "+ resultAdder + "\n");
+        bw.write("출력: "+ resultSubtractor + "\n");
         bw.flush();
         bw.close();
     }
