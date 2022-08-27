@@ -8,18 +8,44 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 
 
-public class YourClass{
+public class YourClass{    
+
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
     
+        bw.write("콘솔 입력 모드: ");
+        bw.flush();
 
-        bw.write("음수 결과값 출력 모드: ");
+        String setModeForConsoleInput = br.readLine();
+
+        bw.write("음수 결과값 출력 방지 모드: ");
         bw.flush();
 
         String setModeForPrintMinus = br.readLine();
        
-        String[] inputStringToNumberArray = args[0].split("\\+");
+        String[] inputStringToNumberArray;
+        
+
+        try{
+             inputStringToNumberArray = args[0].split("\\+");
+         }
+        catch (Exception e){
+            bw.write("입력: ");
+            bw.flush();
+            inputStringToNumberArray = br.readLine().split("\\+");
+            setModeForConsoleInput="off";
+        }
+         
+
+        
+        if (setModeForConsoleInput.equals("on")){
+            bw.write("입력: ");
+            bw.flush();
+            inputStringToNumberArray = br.readLine().split("\\+");
+        }
+
+           
 
         int resultAdder=0;
         int resultSubtractor=Integer.parseInt(inputStringToNumberArray[0]);
