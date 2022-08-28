@@ -49,16 +49,31 @@ public class YourClass{
         }
 
         int resultAdder=0;
-        int resultSubtractor=Integer.parseInt(inputStringToNumberArray[0]);
-
+        int errorOccuredCheck=0;
         for (int i=0; i<inputStringToNumberArray.length; i++){
-             resultAdder += Integer.parseInt(inputStringToNumberArray[i]);
+             try{
+                resultAdder += Integer.parseInt(inputStringToNumberArray[i]);
+             }
+             catch (NumberFormatException e){
+                String[] tempMinusNumbers = inputStringToNumberArray[i].split("-");
+                try{
+                    resultAdder += Integer.parseInt(tempMinusNumbers[0]) - Integer.parseInt(tempMinusNumbers[1]); 
+                }
+                catch (NumberFormatException e2){
+                    if (!(inputStringToNumberArray[i].contains("*") && !(inputStringToNumberArray[i].contains("/")) && !(inputStringToNumberArray[i].contains("%")))){
+                        bw.write("출력: 숫자가 아닌 문자가 입력되었습니다! > "+inputStringToNumberArray[i]+"\n");
+                        bw.flush();
+                    }
+                    else {
+                        bw.write("출력: 지원하지 않는 연산자가 입력되었습니다! > "+inputStringToNumberArray[i]+"\n");
+                        bw.flush();
+                    }
+                    
+                    errorOccuredCheck=1;
+                }
+             }
          }
         
-
-        for (int i=1; i<inputStringToNumberArray.length; i++){
-            resultSubtractor -= Integer.parseInt(inputStringToNumberArray[i]);
-        }
         
 
         // input numbers at command line without character array
@@ -72,8 +87,8 @@ public class YourClass{
         // }
         
         
-        if (resultAdder >= 0 || setModeForPrintMinus.equals("off")) bw.write("출력: "+ resultAdder + "\n");
-        if (resultSubtractor >= 0 || setModeForPrintMinus.equals("off")) bw.write("출력: "+ resultSubtractor + "\n");
+        if (errorOccuredCheck==0 && (resultAdder >= 0 || setModeForPrintMinus.equals("off"))) bw.write("출력: "+ resultAdder + "\n");
+        
         bw.flush();
         bw.close();
     }
