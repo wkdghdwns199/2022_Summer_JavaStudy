@@ -10,9 +10,9 @@ import java.io.BufferedOutputStream;
 
 public class YourClass{    
 
-    public String inputAndCalculate(String[] args) throws IOException{
+    
 
-        
+    public String inputString(String[] arguments) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
     
@@ -20,18 +20,28 @@ public class YourClass{
         bw.flush();
 
         String setModeForConsoleInput = br.readLine();
-
-        bw.write("음수 결과값 출력 방지 모드: ");
-        bw.flush();
-
-        String setModeForPrintMinus = br.readLine();
-       
         String inputCalculationString;
+        if (setModeForConsoleInput.equals("on")){
+            bw.write("입력: ");
+            bw.flush();
+            inputCalculationString = br.readLine();
+        }
+        else {
+            inputCalculationString = arguments[0];
+        }
+
+        return inputCalculationString;
+
+    }
+
+    public String[] inputCalculation(String inputCalculationString) throws IOException{
+
+       
         String[] inputStringToNumberArray;
         
 
         try{
-            inputCalculationString = args[0]; 
+           // inputCalculationString = inputCalculationString[0]; 
             inputStringToNumberArray = inputCalculationString.split("\\+");
         }
         catch (Exception e){
@@ -40,19 +50,13 @@ public class YourClass{
         }
         
         
-        if (setModeForConsoleInput.equals("on")){
-            bw.write("입력: ");
-            bw.flush();
-            inputCalculationString = br.readLine();
-            
-            
-            if (!(inputCalculationString.equals(""))){
-                inputStringToNumberArray = inputCalculationString.split("\\+");
-            }
-            else {
-                inputStringToNumberArray = "0".split("\\+");
-            }
-        }
+        return inputStringToNumberArray;
+    }
+
+    public String calculate(String[] inputStringToNumberArray) throws IOException{
+
+        
+        
         int resultAdder=0;
         //int errorOccuredCheck=0;
         for (int i=0; i<inputStringToNumberArray.length; i++){
@@ -84,8 +88,16 @@ public class YourClass{
          return Integer.toString(resultAdder);
     }
 
-    public static String printResults(String inputCalculationString,String resultString, String setModeForPrintMinus){
+    public static String printResults(String inputCalculationString, String resultString) throws IOException{
         
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        bw.write("음수 결과값 출력 방지 모드: ");
+        bw.flush();
+
+        String setModeForPrintMinus = br.readLine();
+
         int resultAdder;
         try {
             resultAdder = Integer.parseInt(resultString);
