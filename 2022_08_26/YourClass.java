@@ -29,23 +29,24 @@ public class YourClass{
 
         try{
              inputStringToNumberArray = args[0].split("\\+");
-         }
-        catch (Exception e){
-            bw.write("입력: ");
-            bw.flush();
-            inputStringToNumberArray = br.readLine().split("\\+");
-            setModeForConsoleInput="off";
         }
-         
-
+        catch (Exception e){
+            inputStringToNumberArray = "0".split("\\+");
+        }
+        
         
         if (setModeForConsoleInput.equals("on")){
             bw.write("입력: ");
             bw.flush();
-            inputStringToNumberArray = br.readLine().split("\\+");
+            String tempInputStringToNumber = br.readLine();
+            
+            if (!(tempInputStringToNumber.equals(""))){
+                inputStringToNumberArray = tempInputStringToNumber.split("\\+");
+            }
+            else {
+                inputStringToNumberArray = "0".split("\\+");
+            }
         }
-
-           
 
         int resultAdder=0;
         int resultSubtractor=Integer.parseInt(inputStringToNumberArray[0]);
