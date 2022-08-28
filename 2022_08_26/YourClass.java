@@ -24,24 +24,28 @@ public class YourClass{
 
         String setModeForPrintMinus = br.readLine();
        
+        String inputCalculationString;
         String[] inputStringToNumberArray;
         
 
         try{
-             inputStringToNumberArray = args[0].split("\\+");
+            inputCalculationString = args[0]; 
+            inputStringToNumberArray = inputCalculationString.split("\\+");
         }
         catch (Exception e){
-            inputStringToNumberArray = "0".split("\\+");
+            inputCalculationString="0";
+            inputStringToNumberArray = inputCalculationString.split("\\+");
         }
         
         
         if (setModeForConsoleInput.equals("on")){
             bw.write("입력: ");
             bw.flush();
-            String tempInputStringToNumber = br.readLine();
+            inputCalculationString = br.readLine();
             
-            if (!(tempInputStringToNumber.equals(""))){
-                inputStringToNumberArray = tempInputStringToNumber.split("\\+");
+            
+            if (!(inputCalculationString.equals(""))){
+                inputStringToNumberArray = inputCalculationString.split("\\+");
             }
             else {
                 inputStringToNumberArray = "0".split("\\+");
@@ -87,9 +91,14 @@ public class YourClass{
         // }
         
         
-        if (errorOccuredCheck==0 && (resultAdder >= 0 || setModeForPrintMinus.equals("off"))) bw.write("출력: "+ resultAdder + "\n");
+        if (errorOccuredCheck==0 && (resultAdder >= 0 || setModeForPrintMinus.equals("off"))) {
+            bw.write("출력커스텀1: "+ resultAdder + "\n");
+            bw.write("출력커스텀2: 정답은 "+ resultAdder + "입니다\n");
+            bw.write("출력커스텀3: " + inputCalculationString + " 의 정답은 " + resultAdder + "입니다\n");
+            
         
-        bw.flush();
-        bw.close();
+            bw.flush();
+            bw.close();
+        }
     }
 }
