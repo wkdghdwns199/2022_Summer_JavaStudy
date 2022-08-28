@@ -100,5 +100,9 @@ public class YourClass{
             bw.flush();
             bw.close();
         }
+        else if (setModeForPrintMinus.equals("on")){
+            bw.write("결과 값이 음수입니다. 음수 결과 값을 보시고 싶으시면 출력 모드를 변환해 주세요!\n");
+            bw.flush();
+        }
     }
 }
