@@ -21,4 +21,9 @@ TCP
 
 non blocking i/o
 
-Netty 서버
+Netty 서버+
+
+TLAB
+Weak Reference
+
+primitive type auto boking 
