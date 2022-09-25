@@ -40,3 +40,8 @@ syncronized ,
 ### Lock Splitting vs Lock Striping
 
 ### GC
+네이버에서 3분동안 아무 이유 없이 서버가 멈춰있었다. 
+왜 그랬을까?
+Survival 1 2 에 대해서
+
+
