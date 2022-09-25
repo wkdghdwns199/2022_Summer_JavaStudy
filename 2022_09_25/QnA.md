@@ -87,18 +87,26 @@
      이 가설을 적용시켜, GC 는 모든 객체를 검사해가며 메모리를 해제하지 않는다.
      객체가 생성되면 GC 의 Young 영역에 할당시키고, 해당 영역이 가득차면 다음 영역으로 이동시켜 메모리를 정리.
      
+     Young Generation 영역
+     새롭게 생성된 객체 대부분이 이 영역에 위치
+     Eden 영역에서 시작, 만약 객체가 너무 커서 못 들어가면 바로 Old
+     가득차면 minor gc 발생, 참조가 살아있는 객체만 남기고, 나머지는 다 삭제
+     살아있는 객체들 중 오래 사용하겠다고 판단된 객체들은 Old 영역으로 간다
+     
+     
      TLAB - GC 도 결국 JVM 에게 스레드를 할당받아 동작하는 프로그램
      성능을 높이기 위해 GC 에 여러 스레드를 할당 > 동기화 문제, 블로킹 발생
      JVM 은 Young 에서 처음 사용되는 Eden 영역을 여러 버퍼로 나누어, 스레드 별로 별도의 공간을 가지도록 함
-     이르를 Thread local 메모리라고 한다. 
+     이를 Thread local 메모리라고 한다. 
      
-     Serial, Parallel, CMS[Concureent Mark & Sweep], G1[GarbageFirst]
+     Serial, Parallel, CMS[Concureent Mark & Sweep], G1[GarbageFirst] 中
      
       G1GC - 5가지 GC 중 성능이 가장 좋음 > G1GC 는 바둑판의 각 영역에 객체를 할당하고 GC 실행, 해당 영역이 꽉차면 다른 
       영역에서 객체를 할당하고 GC 실행
-      지금 까지의 Young 세가지 영역에서 데이터가 Old 영역으로 이동하는 단계가 사라진 GC 방식
+      지금 까지의 Young 세가지 영역에서 데이터가 Old 영역으로 이동하는 단계가 사라진 GC 방식은 생각 X
       
 ### 📌 JVM 에서 primitive 타입의 autoboxing 이란 무엇을 말하는 걸까요?
+        
 
 ### 📌 final 키워드를 메서드와 클래스에 선언하는 건 무슨 의미가 있나요?
 
