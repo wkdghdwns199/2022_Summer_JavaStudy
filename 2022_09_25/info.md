@@ -45,3 +45,9 @@ syncronized ,
 Survival 1 2 에 대해서
 
 
+### Autoboxing
+오토박싱의 문제점이 무엇일까 > 성능 낭비
+왜 성능 낭비가 큰가?
+
+### Integer 와 int 의 차이?
+
